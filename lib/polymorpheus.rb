@@ -25,8 +25,10 @@ module Polymorpheus
   end
 
   def self.require_foreigner?
-    !(::ActiveRecord::VERSION::MAJOR >= 4 &&
-      ::ActiveRecord::VERSION::MINOR >= 2)
+    !(
+      (::ActiveRecord::VERSION::MAJOR >= 5) ||
+      (::ActiveRecord::VERSION::MAJOR == 4 && ::ActiveRecord::VERSION::MINOR >= 2)
+    )
   end
 end
 

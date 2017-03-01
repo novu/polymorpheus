@@ -21,7 +21,8 @@ module Polymorpheus
 
         # Set belongs_to associations
         builder.associations.each do |association|
-          belongs_to association.name.to_sym, association.options
+          belongs_to association.name.to_sym,
+                     association.options.merge(required: false)
         end
 
         # Exposed interface for introspection
